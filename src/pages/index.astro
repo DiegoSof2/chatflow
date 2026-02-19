@@ -1,0 +1,1272 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="ChatFlow | Atenda 24h e Venda Mais pelo WhatsApp"
+  activePage="home"
+  description="Automatize o atendimento do seu negócio no WhatsApp com API oficial. Nunca perca um cliente por demora."
+>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge reveal">🟢 API Oficial do WhatsApp — zero risco de banimento</div>
+      <h1 class="reveal">
+        Enquanto você dorme,<br>
+        <em>seu WhatsApp continua vendendo</em>
+      </h1>
+      <p class="hero-sub reveal">
+        Seu cliente manda mensagem às 23h. Sem resposta, ele vai pro concorrente.<br>
+        Com o nosso sistema, ele é atendido na hora — e você fecha a venda mesmo sem estar online.
+      </p>
+      <div class="hero-ctas reveal">
+        <a href="#contato" class="btn-primary">Quero atender 24h e vender mais →</a>
+        <a href="#como-funciona" class="btn-ghost">Ver como funciona</a>
+      </div>
+
+      <div class="hero-checks reveal">
+        <span>✅ API oficial do WhatsApp — zero risco de banimento</span>
+        <span>✅ Ativo 24 horas, 7 dias por semana</span>
+        <span>✅ Configurado e funcionando em até 7 dias</span>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="mockup-phone">
+        <div class="mockup-header">
+          <div class="mockup-avatar">CF</div>
+          <div>
+            <div class="mockup-name">ChatFlow Bot</div>
+            <div class="mockup-status">🟢 Online agora</div>
+          </div>
+        </div>
+        <div class="mockup-messages">
+          <div class="msg msg-in">Oi! Gostaria de saber o preço do serviço 😊</div>
+          <div class="msg msg-out">
+            Olá! Fico feliz em ajudar 🎉<br>
+            Temos 3 opções disponíveis. Qual se encaixa melhor pra você?
+          </div>
+          <div class="msg msg-in">Quero saber mais sobre o plano completo!</div>
+          <div class="msg msg-out">Perfeito! Vou te passar todos os detalhes agora... 🚀</div>
+          <div class="msg-time">Atendimento automático · 23:47</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       LOGOS / SOCIAL PROOF BAR
+  ══════════════════════════════════════════ -->
+  <div class="proof-bar reveal">
+    <span class="proof-label">Funciona para</span>
+    <div class="proof-tags">
+      {['Clínicas', 'Salões', 'Lojas', 'Academias', 'Restaurantes', 'Consultórios', 'E-commerces', 'Imobiliárias'].map(s => (
+        <span class="proof-tag">{s}</span>
+      ))}
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PROBLEMA
+  ══════════════════════════════════════════ -->
+  <section class="section section-problem" id="problema">
+    <div class="container">
+      <div class="section-eyebrow reveal">O problema</div>
+      <h2 class="section-title reveal">
+        Você está perdendo dinheiro toda vez<br>
+        <em>que demora pra responder</em>
+      </h2>
+      <p class="section-sub reveal">
+        Não é exagero. Pesquisas mostram que <strong>mais de 70% dos consumidores desistem da compra
+        se não são respondidos em até 5 minutos.</strong>
+      </p>
+
+      <div class="problem-grid">
+        {[
+          { icon: '📵', text: 'Você está em reunião — mensagem fica sem resposta por horas' },
+          { icon: '😴', text: 'Cliente manda dúvida de madrugada — vê silêncio' },
+          { icon: '🔄', text: 'Você responde a mesma pergunta 30 vezes por semana' },
+          { icon: '📉', text: 'Prospect esfria, vai pro Google, acha o concorrente' },
+        ].map((item, i) => (
+          <div class={`problem-card reveal${i % 2 === 1 ? ' d1' : ''}`}>
+            <span class="problem-icon">{item.icon}</span>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="problem-punchline reveal">
+        E o pior: <strong>você nem sabe quantas vendas já perdeu assim.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SOLUÇÃO
+  ══════════════════════════════════════════ -->
+  <section class="section section-solution" id="solucao">
+    <div class="container">
+      <div class="section-eyebrow reveal">A solução</div>
+      <h2 class="section-title reveal">
+        Seu negócio atendendo, vendendo e<br>
+        <em>aparecendo no Google — no piloto automático</em>
+      </h2>
+      <p class="section-sub reveal">
+        Nós configuramos um sistema completo que trabalha por você.
+      </p>
+
+      <!-- Bloco 1 -->
+      <div class="solution-block reveal">
+        <div class="solution-block-visual sol-v1">
+          <div class="sol-icon">🤖</div>
+          <div class="sol-pill">API Oficial</div>
+        </div>
+        <div class="solution-block-text">
+          <span class="block-eyebrow">Bloco 1</span>
+          <h3>Chatbot que responde, qualifica e vende</h3>
+          <p>
+            Seu cliente manda mensagem e é atendido na hora. O sistema responde dúvidas, envia catálogos,
+            coleta informações e encaminha os leads quentes direto pra você ou pra sua equipe.
+          </p>
+          <p class="highlight-text">
+            <strong>Você só entra na conversa quando o cliente já está pronto pra comprar.</strong>
+          </p>
+          <div class="tag-row">
+            <span class="tag">✅ API oficial do WhatsApp</span>
+            <span class="tag">✅ Sem gambiarras</span>
+            <span class="tag">✅ Zero risco de banimento</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 1b - Coexistence -->
+      <div class="solution-block solution-block-rev reveal">
+        <div class="solution-block-visual sol-v2">
+          <div class="sol-icon">📱</div>
+          <div class="sol-pill sol-pill-blue">CoEx</div>
+        </div>
+        <div class="solution-block-text">
+          <span class="block-eyebrow">Diferencial exclusivo</span>
+          <h3>Seu número, do seu jeito — sem abrir mão de nada</h3>
+          <p>
+            Com a tecnologia <strong>WhatsApp Coexistence</strong>, você <strong>mantém o mesmo número</strong>
+            que já usa hoje e <strong>continua usando o aplicativo normalmente</strong> no celular — como sempre fez.
+          </p>
+          <p class="highlight-text">
+            <strong>Sem trocar de número. Sem perder histórico. Sem complicação.</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Bloco 2 -->
+      <div class="solution-block reveal">
+        <div class="solution-block-visual sol-v3">
+          <div class="sol-icon">📋</div>
+        </div>
+        <div class="solution-block-text">
+          <span class="block-eyebrow">Bloco 2</span>
+          <h3>Painel de Atendimento Centralizado</h3>
+          <p>
+            Usa WhatsApp no celular, no computador, tem equipe? Nosso painel organiza tudo: histórico de
+            conversa, atribuição por atendente, etiquetas, relatórios.
+          </p>
+          <p class="highlight-text">
+            <strong>Chega de mensagem perdida no meio de mil conversas.</strong>
+          </p>
+          <div class="tag-row">
+            <span class="tag">✅ Histórico completo</span>
+            <span class="tag">✅ Atribuição por atendente</span>
+            <span class="tag">✅ Relatórios</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 3 -->
+      <div class="solution-block solution-block-rev reveal">
+        <div class="solution-block-visual sol-v4">
+          <div class="sol-icon">🔀</div>
+        </div>
+        <div class="solution-block-text">
+          <span class="block-eyebrow">Bloco 3</span>
+          <h3>Filas Inteligentes de Atendimento</h3>
+          <p>
+            Tem mais de um atendente? O sistema distribui as conversas automaticamente entre quem está
+            disponível — sem fila parada, sem cliente esperando sem resposta.
+          </p>
+          <p>
+            Se um atendente ficar inativo, a conversa é <strong>repassada automaticamente</strong> para outro disponível.
+          </p>
+          <p class="highlight-text">
+            <strong>Ninguém fica no vácuo. Nenhuma venda escapa.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PARA QUEM É
+  ══════════════════════════════════════════ -->
+  <section class="section section-forwhom" id="para-quem">
+    <div class="container">
+      <div class="forwhom-inner reveal">
+        <div class="forwhom-text">
+          <div class="section-eyebrow" style="color:#fff;opacity:0.6">Para quem é</div>
+          <h2>Esse serviço foi feito<br><em>pra você se…</em></h2>
+          <ul class="forwhom-list">
+            {[
+              'Você tem um negócio e recebe (ou quer receber) clientes pelo WhatsApp',
+              'Está cansado de responder as mesmas perguntas todo dia',
+              'Já perdeu cliente por não responder rápido',
+              'Quer crescer sem precisar contratar mais atendentes agora',
+              'Quer aparecer no Google mas não sabe por onde começar',
+            ].map(item => (
+              <li><span class="check">✓</span> {item}</li>
+            ))}
+          </ul>
+          <a href="#contato" class="btn-white">Quero esse sistema →</a>
+        </div>
+        <div class="forwhom-sectors">
+          {['Clínicas', 'Salões de beleza', 'Lojas', 'Academias', 'Restaurantes', 'Consultórios', 'E-commerces', 'Imobiliárias', 'Prestadores de serviço', 'E muito mais...'].map(s => (
+            <span class="sector-tag">{s}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       COMO FUNCIONA
+  ══════════════════════════════════════════ -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-eyebrow reveal">Como funciona</div>
+      <h2 class="section-title reveal">Simples assim: em 3 passos<br><em>você está no ar</em></h2>
+
+      <div class="steps-row">
+        {[
+          {
+            num: '01',
+            title: 'Conversa de diagnóstico',
+            text: 'Entendemos seu negócio, seu fluxo de atendimento e o que seus clientes mais perguntam.',
+          },
+          {
+            num: '02',
+            title: 'Configuramos tudo pra você',
+            text: 'Montamos o chatbot, conectamos o WhatsApp oficial, organizamos o painel e otimizamos seu Google Meu Negócio.',
+          },
+          {
+            num: '03',
+            title: 'Você começa a receber clientes atendidos automaticamente',
+            text: 'A partir daí, seu negócio atende 24h — você acompanha pelo painel e foca no que importa.',
+          },
+        ].map((step, i) => (
+          <div class={`step-card reveal${i === 1 ? ' d1' : i === 2 ? ' d2' : ''}`}>
+            <div class="step-num">{step.num}</div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DIFERENCIAIS / TABELA
+  ══════════════════════════════════════════ -->
+  <section class="section section-diff" id="diferenciais">
+    <div class="container">
+      <div class="section-eyebrow reveal">Por que a gente?</div>
+      <h2 class="section-title reveal">
+        Por que escolher a gente<br>
+        <em>e não qualquer chatbot barato?</em>
+      </h2>
+
+      <div class="diff-table reveal">
+        <div class="diff-thead">
+          <div class="diff-col diff-feature"></div>
+          <div class="diff-col diff-them">Chatbot genérico</div>
+          <div class="diff-col diff-us">Nosso serviço</div>
+        </div>
+        {[
+          { feature: 'API oficial do WhatsApp', them: '❌ Quase nunca', us: '✅ Sempre' },
+          { feature: 'Mantém número e app do celular', them: '❌', us: '✅ WhatsApp Coexistence' },
+          { feature: 'Personalizado pro seu negócio', them: '❌ Template padrão', us: '✅ Feito sob medida' },
+          { feature: 'Painel de gestão de atendimento', them: '❌', us: '✅' },
+          { feature: 'Google Meu Negócio', them: '❌', us: '➕ Add-on disponível' },
+          { feature: 'Suporte e ajustes', them: '❌ Você se vira', us: '✅ A gente cuida' },
+        ].map(row => (
+          <div class="diff-row">
+            <div class="diff-col diff-feature">{row.feature}</div>
+            <div class="diff-col diff-them">{row.them}</div>
+            <div class="diff-col diff-us">{row.us}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DEPOIMENTOS
+  ══════════════════════════════════════════ -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <div class="section-eyebrow reveal">Depoimentos</div>
+      <h2 class="section-title reveal">O que nossos clientes dizem</h2>
+
+      <div class="testimonials-grid">
+        {[
+          {
+            quote: 'Antes eu ficava preso no celular o dia todo respondendo WhatsApp. Hoje o sistema faz isso por mim e eu só entro pra fechar.',
+            name: 'Carlos M.',
+            role: 'Dono de clínica estética',
+            initial: 'C',
+          },
+          {
+            quote: 'Em duas semanas depois de configurar o Google Meu Negócio, comecei a receber clientes que nunca tinham me visto antes.',
+            name: 'Fernanda R.',
+            role: 'Proprietária de salão',
+            initial: 'F',
+          },
+          {
+            quote: 'Tive medo de perder meu número, mas com a API oficial do WhatsApp fiquei tranquila. Já tive chatbot antes que me baniu.',
+            name: 'Rafael T.',
+            role: 'Gestor de e-commerce',
+            initial: 'R',
+          },
+        ].map((t, i) => (
+          <div class={`testimonial-card reveal${i === 1 ? ' d1' : i === 2 ? ' d2' : ''}`}>
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">{t.quote}</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">{t.initial}</div>
+              <div>
+                <div class="testimonial-name">{t.name}</div>
+                <div class="testimonial-role">{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PLANOS
+  ══════════════════════════════════════════ -->
+  <section class="section section-plans" id="planos">
+    <div class="container">
+      <div class="section-eyebrow reveal">Investimento</div>
+      <h2 class="section-title reveal">
+        Investimento que se paga<br>
+        <em>no primeiro cliente</em>
+      </h2>
+
+      <div class="plans-grid">
+        <!-- Essencial -->
+        <div class="plan-card reveal">
+          <div class="plan-header">
+            <div class="plan-name">Essencial</div>
+            <div class="plan-tagline">Chatbot no WhatsApp + API Oficial</div>
+            <div class="plan-price">A partir de <strong>R$ X</strong><span>/mês</span></div>
+          </div>
+          <ul class="plan-features">
+            {[
+              'Fluxo de atendimento personalizado',
+              'Conexão via API oficial (anti-banimento)',
+              'Fila inteligente de atendimento',
+              'Repasse automático por inatividade',
+              'Painel de gestão das conversas',
+              'Suporte nos primeiros 30 dias',
+            ].map(f => <li><span class="plan-check">✓</span> {f}</li>)}
+          </ul>
+          <a href="#contato" class="plan-cta plan-cta-outline">Começar agora →</a>
+        </div>
+
+        <!-- Completo - Destaque -->
+        <div class="plan-card plan-card-featured reveal d1">
+          <div class="plan-badge">⭐ Mais escolhido</div>
+          <div class="plan-header">
+            <div class="plan-name">Completo</div>
+            <div class="plan-tagline">Tudo do Essencial, mais recursos avançados</div>
+            <div class="plan-price">A partir de <strong>R$ X</strong><span>/mês</span></div>
+          </div>
+          <ul class="plan-features">
+            {[
+              'Tudo do plano Essencial',
+              'Fluxos avançados e personalizados',
+              'Relatório mensal de atendimentos',
+              'Suporte contínuo e ajustes ilimitados',
+              'Automações com inteligência artificial',
+              'Integração com CRMs e sistemas externos',
+            ].map(f => <li><span class="plan-check">✓</span> {f}</li>)}
+          </ul>
+          <a href="#contato" class="plan-cta plan-cta-filled">Quero o plano completo →</a>
+        </div>
+
+        <!-- Add-on -->
+        <div class="plan-card plan-card-addon reveal d2">
+          <div class="plan-addon-label">➕ Add-on</div>
+          <div class="plan-header">
+            <div class="plan-name">Google Meu Negócio</div>
+            <div class="plan-tagline">Apareça no Google quando seu cliente estiver procurando</div>
+            <div class="plan-price">Valor único: <strong>R$ X</strong></div>
+          </div>
+          <ul class="plan-features">
+            {[
+              'Configuração e otimização completa do perfil',
+              'Fotos, horários, categorias e descrição para SEO',
+              'Integração com botão direto pro seu WhatsApp',
+              'Aparece em buscas "perto de mim"',
+            ].map(f => <li><span class="plan-check">✓</span> {f}</li>)}
+          </ul>
+          <a href="#contato" class="plan-cta plan-cta-outline">Adicionar ao plano →</a>
+        </div>
+      </div>
+
+      <p class="plans-note reveal">
+        Sem compromisso. Analisamos seu negócio gratuitamente antes de qualquer coisa.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════ -->
+  <section class="section" id="faq">
+    <div class="container faq-container">
+      <div class="section-eyebrow reveal">FAQ</div>
+      <h2 class="section-title reveal">Perguntas frequentes</h2>
+
+      <div class="faq-list">
+        {[
+          {
+            q: 'Vou precisar trocar meu número de WhatsApp?',
+            a: 'Não. Usamos o WhatsApp Coexistence (CoEx) — uma tecnologia que permite conectar o sistema ao seu número atual sem abrir mão do aplicativo. Você continua usando o WhatsApp no celular normalmente, enquanto o chatbot trabalha em paralelo.',
+          },
+          {
+            q: 'Meu WhatsApp pode ser banido?',
+            a: 'Não. Trabalhamos exclusivamente com a API oficial do WhatsApp — a mesma aprovada e fornecida pelo próprio WhatsApp. É a forma mais segura e estável de automatizar o atendimento.',
+          },
+          {
+            q: 'Preciso ter equipe de atendimento?',
+            a: 'Não. O chatbot resolve a maior parte sozinho. Se você quiser, pode ter atendentes humanos complementando — nosso painel facilita isso.',
+          },
+          {
+            q: 'Em quanto tempo fica pronto?',
+            a: 'Em até 7 dias úteis seu sistema já está funcionando.',
+          },
+          {
+            q: 'Funciona para qualquer tipo de negócio?',
+            a: 'Sim, desde que você utilize (ou queira utilizar) o WhatsApp para se comunicar com clientes.',
+          },
+          {
+            q: 'E se eu precisar mudar alguma coisa no chatbot depois?',
+            a: 'Você nos chama e ajustamos. Não deixamos você sozinho depois da entrega.',
+          },
+          {
+            q: 'Vocês também cuidam do Google Meu Negócio?',
+            a: 'Sim! É um serviço adicional que pode ser contratado junto ou separado. Configuramos e otimizamos seu perfil para que você apareça nas buscas da sua cidade — com o botão de WhatsApp já integrado direto pro seu chatbot.',
+          },
+        ].map((item, i) => (
+          <details class={`faq-item reveal${i % 2 === 1 ? ' d1' : ''}`}>
+            <summary class="faq-q">{item.q}<span class="faq-arrow">›</span></summary>
+            <p class="faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA FINAL
+  ══════════════════════════════════════════ -->
+  <section class="section section-cta" id="contato">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="cta-box-eyebrow">Próximo passo</div>
+        <h2>Seu concorrente já pode<br><em>estar fazendo isso</em></h2>
+        <p>
+          Cada dia sem atendimento automático é mais um cliente perdido por falta de resposta.
+          A boa notícia: configurar é mais simples do que parece — e nós fazemos tudo por você.
+        </p>
+        <div class="cta-box-actions">
+          <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" class="btn-white-lg">
+            💬 Falar pelo WhatsApp agora →
+          </a>
+          <span class="cta-note">Análise gratuita do seu negócio. Sem enrolação.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ══════════════ SHARED ══════════════ */
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+  .section {
+    padding: 6rem 0;
+  }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  .section-title em { font-style: italic; color: var(--green); }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  /* ══════════════ HERO ══════════════ */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 5rem 2.5rem 6rem;
+    max-width: 1160px;
+    margin: 0 auto;
+    min-height: calc(100vh - 64px);
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--green-lt);
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--green-tag);
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.5vw, 3.75rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--green); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 20px rgba(26,92,56,0.3);
+  }
+  .btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: var(--ink-mid);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.9rem 1.5rem;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1.5px solid var(--border2);
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+  .hero-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-checks span {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    font-weight: 500;
+  }
+
+  /* ══════════════ MOCKUP ══════════════ */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mockup-phone {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 24px 80px rgba(14,14,13,0.14);
+    overflow: hidden;
+    width: 320px;
+    border: 1px solid var(--border);
+  }
+  .mockup-header {
+    background: var(--green);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .mockup-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .mockup-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
+  .mockup-status { font-size: 0.72rem; color: rgba(255,255,255,0.75); }
+  .mockup-messages {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: #f0f0f0;
+  }
+  .msg {
+    max-width: 80%;
+    padding: 0.65rem 1rem;
+    border-radius: 18px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .msg-in {
+    background: #fff;
+    border-bottom-left-radius: 4px;
+    color: var(--ink);
+    align-self: flex-start;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .msg-out {
+    background: var(--green);
+    border-bottom-right-radius: 4px;
+    color: #fff;
+    align-self: flex-end;
+    box-shadow: 0 1px 4px rgba(26,92,56,0.25);
+  }
+  .msg-time {
+    font-size: 0.68rem;
+    color: #999;
+    text-align: center;
+  }
+
+  /* ══════════════ PROOF BAR ══════════════ */
+  .proof-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .proof-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    white-space: nowrap;
+  }
+  .proof-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .proof-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.85rem;
+    border-radius: 100px;
+    background: var(--bg3);
+    color: var(--ink-mid);
+    border: 1px solid var(--border);
+  }
+
+  /* ══════════════ PROBLEMA ══════════════ */
+  .section-problem { background: var(--bg2); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .problem-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .problem-icon { font-size: 2rem; flex-shrink: 0; }
+  .problem-card p { font-size: 1rem; color: var(--ink-mid); line-height: 1.7; }
+  .problem-punchline {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--ink-mid);
+    padding: 1.5rem;
+    background: var(--green-lt);
+    border-radius: 16px;
+    border: 1px solid var(--green-tag);
+  }
+  .problem-punchline strong { color: var(--ink); }
+
+  /* ══════════════ SOLUÇÃO ══════════════ */
+  .solution-block {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .solution-block:last-child { border-bottom: none; }
+  .solution-block-rev { direction: rtl; }
+  .solution-block-rev > * { direction: ltr; }
+  .solution-block-visual {
+    border-radius: 24px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .sol-v1 { background: linear-gradient(135deg, #1A5C38, #34a85a); }
+  .sol-v2 { background: linear-gradient(135deg, #2E6EA6, #5BA3D9); }
+  .sol-v3 { background: linear-gradient(135deg, #C17F3B, #E8A955); }
+  .sol-v4 { background: linear-gradient(135deg, #8A3CB8, #C06FE8); }
+  .sol-icon { font-size: 4rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2)); }
+  .sol-pill {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+  }
+  .sol-pill-blue { background: rgba(255,255,255,0.25); }
+  .block-eyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+  .solution-block-text h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .solution-block-text p {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .highlight-text { color: var(--ink) !important; font-weight: 500 !important; }
+  .tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    background: var(--green-lt);
+    color: var(--green);
+    border: 1px solid var(--green-tag);
+  }
+
+  /* ══════════════ PARA QUEM ══════════════ */
+  .section-forwhom {
+    background: var(--green);
+    padding: 5rem 0;
+  }
+  .forwhom-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .forwhom-text h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+  .forwhom-text h2 em { font-style: italic; color: rgba(255,255,255,0.75); }
+  .forwhom-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+  }
+  .forwhom-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+  .check {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0.1rem;
+  }
+  .btn-white {
+    display: inline-flex;
+    background: #fff;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-white:hover { background: var(--ink); color: #fff; }
+  .forwhom-sectors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-content: flex-start;
+  }
+  .sector-tag {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ══════════════ STEPS ══════════════ */
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .step-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--green-tag);
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.04em;
+  }
+  .step-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-card p { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.75; }
+
+  /* ══════════════ DIFERENCIAIS ══════════════ */
+  .section-diff { background: var(--bg2); }
+  .diff-table {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+    box-shadow: var(--shadow);
+  }
+  .diff-thead {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: var(--ink);
+  }
+  .diff-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .diff-row:last-child { border-bottom: none; }
+  .diff-row:nth-child(even) { background: var(--bg3); }
+  .diff-col {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  .diff-thead .diff-col {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    padding: 0.85rem 1.25rem;
+  }
+  .diff-thead .diff-us { color: #fff; }
+  .diff-feature { font-weight: 500; color: var(--ink); }
+  .diff-them { color: var(--ink-dim); }
+  .diff-us { color: var(--green); font-weight: 600; }
+
+  /* ══════════════ DEPOIMENTOS ══════════════ */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .testimonial-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonial-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    line-height: 0.8;
+    color: var(--green-tag);
+    margin-bottom: 0.75rem;
+    font-weight: 900;
+  }
+  .testimonial-text {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    font-style: italic;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 0.85rem; }
+  .testimonial-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .testimonial-name { font-size: 0.9rem; font-weight: 700; color: var(--ink); }
+  .testimonial-role { font-size: 0.78rem; color: var(--ink-dim); }
+
+  /* ══════════════ PLANOS ══════════════ */
+  .section-plans { background: var(--bg2); }
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+  .plan-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card-featured {
+    background: var(--ink);
+    border-color: var(--ink);
+    box-shadow: 0 16px 60px rgba(14,14,13,0.18);
+    transform: translateY(-8px);
+  }
+  .plan-card-addon { border-style: dashed; }
+  .plan-badge {
+    display: inline-flex;
+    align-self: flex-start;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .plan-addon-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 1rem;
+  }
+  .plan-header { margin-bottom: 1.5rem; }
+  .plan-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .plan-card-featured .plan-name { color: #fff; }
+  .plan-tagline { font-size: 0.85rem; color: var(--ink-dim); margin-bottom: 1rem; line-height: 1.5; }
+  .plan-card-featured .plan-tagline { color: rgba(255,255,255,0.5); }
+  .plan-price {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .plan-card-featured .plan-price { border-top-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+  .plan-price strong { font-size: 1.75rem; font-weight: 900; color: var(--green); }
+  .plan-card-featured .plan-price strong { color: #6fcf97; }
+  .plan-price span { font-size: 0.85rem; }
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+  .plan-card-featured .plan-features li { color: rgba(255,255,255,0.75); }
+  .plan-check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .plan-card-featured .plan-check { color: #6fcf97; }
+  .plan-cta {
+    display: block;
+    text-align: center;
+    padding: 0.85rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .plan-cta-outline {
+    border: 1.5px solid var(--border2);
+    color: var(--ink-mid);
+  }
+  .plan-cta-outline:hover { border-color: var(--green); color: var(--green); }
+  .plan-cta-filled {
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(26,92,56,0.35);
+  }
+  .plan-cta-filled:hover { background: #6fcf97; color: var(--ink); }
+  .plans-note {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    margin-top: 2rem;
+  }
+
+  /* ══════════════ FAQ ══════════════ */
+  .faq-container { max-width: 760px; }
+  .faq-list {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .faq-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item[open] { box-shadow: var(--shadow); border-color: var(--green); }
+  .faq-q {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+    user-select: none;
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q:hover { color: var(--green); }
+  .faq-arrow {
+    font-size: 1.3rem;
+    color: var(--green);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .faq-item[open] .faq-arrow { transform: rotate(90deg); }
+  .faq-a {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  /* ══════════════ CTA FINAL ══════════════ */
+  .section-cta { background: var(--bg2); }
+  .cta-box {
+    background: var(--green);
+    border-radius: 28px;
+    padding: 5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.07), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-box-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 1.25rem;
+  }
+  .cta-box h2 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  .cta-box h2 em { font-style: italic; color: rgba(255,255,255,0.75); }
+  .cta-box p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+  .cta-box-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .btn-white-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 2.25rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+  .btn-white-lg:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .cta-note {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ══════════════ RESPONSIVE ══════════════ */
+  @media (max-width: 960px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 3.5rem 1.5rem 4rem;
+      min-height: auto;
+      text-align: center;
+    }
+    .hero-ctas { justify-content: center; }
+    .hero-checks { align-items: center; }
+    .hero-visual { order: -1; }
+    .mockup-phone { width: 280px; }
+    .proof-bar { justify-content: center; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .solution-block,
+    .solution-block-rev {
+      grid-template-columns: 1fr;
+      direction: ltr;
+      gap: 2rem;
+      padding: 3rem 0;
+    }
+    .forwhom-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .steps-row { grid-template-columns: 1fr; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .plan-card-featured { transform: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .diff-table { overflow-x: auto; }
+    .diff-thead, .diff-row { grid-template-columns: 1.5fr 1fr 1.2fr; min-width: 520px; }
+    .container { padding: 0 1.25rem; }
+    .cta-box { padding: 3rem 1.5rem; }
+    .section { padding: 4rem 0; }
+  }
+</style>

@@ -1,0 +1,391 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featured = posts.find(p => p.data.featured);
+const rest = posts.filter(p => !p.data.featured);
+
+const categories = ['Atendimento', 'Vendas', 'Automação', 'WhatsApp', 'Presença Digital'];
+
+const categoryColors: Record<string, { bg: string; text: string; accent: string }> = {
+  'Atendimento':      { bg: '#D3E9D9', text: '#1A5C38', accent: 'linear-gradient(90deg,#1A5C38,#34a85a)' },
+  'Vendas':           { bg: '#FAF0E3', text: '#C17F3B', accent: 'linear-gradient(90deg,#C17F3B,#E8A955)' },
+  'Automação':        { bg: '#F5EBF9', text: '#8A3CB8', accent: 'linear-gradient(90deg,#8A3CB8,#C06FE8)' },
+  'WhatsApp':         { bg: '#E8F1FA', text: '#2E6EA6', accent: 'linear-gradient(90deg,#2E6EA6,#5BA3D9)' },
+  'Presença Digital': { bg: '#FAECEA', text: '#C0392B', accent: 'linear-gradient(90deg,#C0392B,#E8735A)' },
+};
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+---
+
+<Layout title="Blog | ChatFlow — Dicas para vender mais pelo WhatsApp" activePage="blog"
+  description="Artigos sobre automação de atendimento, WhatsApp Business, chatbots e como pequenos negócios podem vender mais.">
+
+  <!-- HERO -->
+  <div class="blog-hero reveal">
+    <div class="blog-eyebrow">Blog</div>
+    <h1>Dicas para vender<br><em>mais pelo WhatsApp</em></h1>
+    <p>Artigos sobre automação de atendimento, chatbots e como pequenos negócios podem crescer sem contratar mais.</p>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters-bar reveal">
+    <button class="pill active" data-filter="all">Todos</button>
+    {categories.map(cat => (
+      <button class="pill" data-filter={cat}>{cat}</button>
+    ))}
+  </div>
+
+  <!-- POSTS -->
+  <div class="posts-wrap">
+
+    <!-- FEATURED -->
+    {featured && (
+      <a href={`/blog/${featured.slug}`} class="post-featured reveal" data-cat={featured.data.category}
+        transition:name={`card-${featured.slug}`}>
+        <div class="feat-visual" style={`background:${featured.data.accentColor}`}>
+          <span class="feat-badge">⭐ Em destaque</span>
+          <span class="feat-icon">{featured.data.icon}</span>
+        </div>
+        <div class="feat-body">
+          <div class="post-meta">
+            <span class="post-date">
+              <span class="dot" style={`background:${categoryColors[featured.data.category]?.text}`}></span>
+              {formatDate(featured.data.pubDate)}
+            </span>
+            <span class="cat-pill" style={`background:${categoryColors[featured.data.category]?.bg};color:${categoryColors[featured.data.category]?.text}`}>
+              {featured.data.category}
+            </span>
+          </div>
+          <h2 transition:name={`post-title-${featured.data.title.slice(0,20)}`}>{featured.data.title}</h2>
+          <p>{featured.data.description}</p>
+          <span class="read-link">Ler artigo →</span>
+        </div>
+      </a>
+    )}
+
+    <!-- GRID -->
+    <div class="posts-grid" id="posts-grid">
+      {rest.map((post, i) => {
+        const cat = categoryColors[post.data.category];
+        return (
+          <a href={`/blog/${post.slug}`}
+            class="post-card reveal"
+            class:list={[`reveal`, i % 3 === 1 ? 'd1' : i % 3 === 2 ? 'd2' : '']}
+            data-cat={post.data.category}
+            style={`--accent: ${cat?.accent}`}
+            transition:name={`card-${post.slug}`}>
+            <div class="card-body">
+              <span class="card-icon">{post.data.icon}</span>
+              <div class="post-meta">
+                <span class="post-date">
+                  <span class="dot" style={`background:${cat?.text}`}></span>
+                  {formatDate(post.data.pubDate)}
+                </span>
+                <span class="cat-pill" style={`background:${cat?.bg};color:${cat?.text}`}>
+                  {post.data.category}
+                </span>
+              </div>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">{post.data.readTime}</span>
+              <span class="read-link-sm">Ler →</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter reveal">
+      <div>
+        <h3>Receba novos artigos por e-mail</h3>
+        <p>Uma vez por semana, dicas práticas sobre atendimento e vendas pelo WhatsApp. Sem spam.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false">
+        <input class="nl-input" type="email" placeholder="seu@email.com" />
+        <button class="nl-btn" type="submit">Quero receber →</button>
+      </form>
+    </div>
+
+  </div>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .blog-hero {
+    padding: 4.5rem 2.5rem 3rem;
+    max-width: 1160px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .blog-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.85rem;
+  }
+  .blog-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 0.75rem;
+  }
+  .blog-hero h1 em { font-style: italic; color: var(--green); }
+  .blog-hero p { font-size: 1.05rem; color: var(--ink-mid); max-width: 500px; line-height: 1.75; }
+
+  /* ── FILTERS ── */
+  .filters-bar {
+    padding: 1.75rem 2.5rem;
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--border2);
+    background: transparent;
+    color: var(--ink-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pill:hover { border-color: var(--green); color: var(--green); }
+  .pill.active { background: var(--green); border-color: var(--green); color: #fff; }
+
+  /* ── POSTS WRAPPER ── */
+  .posts-wrap {
+    padding: 0 2.5rem 6rem;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  /* ── FEATURED ── */
+  .post-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+  }
+  .post-featured:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+  .feat-visual {
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  .feat-visual::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1), transparent 60%);
+  }
+  .feat-badge {
+    position: absolute;
+    top: 1.25rem; left: 1.25rem;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+  }
+  .feat-icon { font-size: 5rem; opacity: 0.9; position: relative; }
+  .feat-body {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .feat-body h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 0.85rem;
+    color: var(--ink);
+  }
+  .feat-body p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.75; margin-bottom: 1.75rem; }
+
+  /* ── POST META ── */
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .cat-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+  }
+  .read-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .read-link:hover { gap: 0.7rem; }
+
+  /* ── GRID ── */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .post-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .post-card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: var(--accent, linear-gradient(90deg,#1A5C38,#34a85a));
+  }
+  .post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .post-card.hidden { display: none; }
+
+  .card-body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-icon { font-size: 1.6rem; margin-bottom: 1rem; display: block; }
+  .card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--ink); }
+  .card-body p { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.7; flex: 1; }
+
+  .card-footer {
+    border-top: 1px solid var(--border);
+    padding: 0.9rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .read-time { font-size: 0.78rem; color: var(--ink-dim); }
+  .read-link-sm { font-size: 0.82rem; font-weight: 600; color: var(--green); }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--green);
+    border-radius: 24px;
+    padding: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .newsletter h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem; }
+  .newsletter p { font-size: 0.9rem; color: rgba(255,255,255,0.75); max-width: 380px; }
+  .newsletter-form { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .nl-input {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 100px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    width: 240px;
+    outline: none;
+  }
+  .nl-input::placeholder { color: rgba(255,255,255,0.55); }
+  .nl-input:focus { background: rgba(255,255,255,0.22); }
+  .nl-btn {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    border: none;
+    background: #fff;
+    color: var(--green);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nl-btn:hover { background: var(--ink); color: #fff; }
+
+  @media (max-width: 900px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .post-featured { grid-template-columns: 1fr; }
+    .feat-visual { min-height: 180px; }
+    .newsletter { flex-direction: column; }
+    .newsletter-form { width: 100%; flex-direction: column; }
+    .nl-input { width: 100%; }
+    .blog-hero, .filters-bar, .posts-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+</style>
+
+<script>
+  // Filter logic
+  document.addEventListener('astro:page-load', () => {
+    const pills = document.querySelectorAll<HTMLButtonElement>('.pill');
+    const cards = document.querySelectorAll<HTMLElement>('[data-cat]');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const filter = pill.dataset.filter ?? 'all';
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.cat === filter;
+          card.classList.toggle('hidden', !show);
+        });
+      });
+    });
+  });
+</script>

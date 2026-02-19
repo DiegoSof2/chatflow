@@ -1,0 +1,339 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  category: string;
+  icon: string;
+  accentColor: string;
+  readTime: string;
+}
+
+const { title, description, pubDate, category, icon, accentColor, readTime } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('pt-BR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  'Atendimento':      { bg: '#D3E9D9', text: '#1A5C38' },
+  'Vendas':           { bg: '#FAF0E3', text: '#C17F3B' },
+  'Automação':        { bg: '#F5EBF9', text: '#8A3CB8' },
+  'WhatsApp':         { bg: '#E8F1FA', text: '#2E6EA6' },
+  'Presença Digital': { bg: '#FAECEA', text: '#C0392B' },
+};
+
+const catStyle = categoryColors[category] ?? { bg: '#D3E9D9', text: '#1A5C38' };
+---
+
+<Layout title={`${title} | ChatFlow Blog`} description={description} activePage="blog">
+
+  <!-- HERO -->
+  <div class="post-hero" style={`--accent: ${accentColor}`} transition:name="post-hero">
+    <div class="post-hero-inner">
+      <a href="/blog" class="back-link">← Voltar ao blog</a>
+      <div class="post-meta">
+        <span class="post-date">
+          <span class="dot" style={`background:${catStyle.text}`}></span>
+          {formattedDate}
+        </span>
+        <span class="cat-pill" style={`background:${catStyle.bg};color:${catStyle.text}`}>
+          {category}
+        </span>
+        <span class="read-time">{readTime}</span>
+      </div>
+      <h1 transition:name={`post-title-${title.slice(0,20)}`}>{title}</h1>
+      <p class="lead">{description}</p>
+      <div class="post-icon">{icon}</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="post-body">
+    <article class="prose">
+      <slot />
+    </article>
+
+    <!-- CTA inline -->
+    <div class="post-cta">
+      <div class="post-cta-inner">
+        <div class="post-cta-text">
+          <p class="post-cta-label">Pronto para automatizar?</p>
+          <h3>Implante isso no seu negócio em até 7 dias</h3>
+        </div>
+        <a href="/#contato" class="cta-btn">Falar com especialista →</a>
+      </div>
+    </div>
+
+    <!-- Back -->
+    <div class="back-wrap">
+      <a href="/blog" class="back-link-bottom">← Ver todos os artigos</a>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .post-hero {
+    background: var(--accent, var(--green));
+    padding: 3rem 2.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 50%, rgba(255,255,255,0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .post-hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #fff; }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .cat-pill {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+  }
+  .read-time {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .post-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 1rem;
+    max-width: 700px;
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    max-width: 580px;
+    line-height: 1.75;
+  }
+  .post-icon {
+    position: absolute;
+    top: 0; right: 0;
+    font-size: 6rem;
+    opacity: 0.15;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  /* ── BODY ── */
+  .post-body {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem 6rem;
+  }
+
+  /* ── PROSE (markdown styles) ── */
+  .prose {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-mid);
+  }
+  .prose :global(h2) {
+    font-family: 'Fraunces', serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .prose :global(h3) {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 2rem 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .prose :global(p) {
+    margin-bottom: 1.35rem;
+    color: var(--ink-mid);
+  }
+  .prose :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .prose :global(a) {
+    color: var(--green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+  .prose :global(a:hover) { opacity: 0.75; }
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .prose :global(li) { color: var(--ink-mid); }
+  .prose :global(li::marker) { color: var(--green); }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--green);
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    background: var(--green-lt);
+    border-radius: 0 12px 12px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+  .prose :global(code) {
+    font-size: 0.88em;
+    background: var(--bg3);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    color: var(--green);
+  }
+  .prose :global(pre) {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+  .prose :global(pre code) {
+    background: none;
+    color: #f0efe8;
+    padding: 0;
+  }
+  .prose :global(img) {
+    width: 100%;
+    border-radius: 16px;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .prose :global(th) {
+    background: var(--bg3);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .prose :global(td) {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── INLINE CTA ── */
+  .post-cta {
+    margin: 3rem 0;
+    background: var(--green);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+  .post-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .post-cta-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.35rem;
+  }
+  .post-cta-text h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    font-weight: 700;
+  }
+  .cta-btn {
+    display: inline-flex;
+    background: #fff;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover { background: var(--ink); color: #fff; }
+
+  .back-wrap { text-align: center; margin-top: 2rem; }
+  .back-link-bottom {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link-bottom:hover { color: var(--green); }
+
+  @media (max-width: 768px) {
+    .post-hero { padding: 2rem 1.25rem 3rem; }
+    .post-body { padding: 2.5rem 1.25rem 4rem; }
+    .post-cta-inner { flex-direction: column; }
+    .post-icon { font-size: 4rem; }
+  }
+</style>
