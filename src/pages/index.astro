@@ -1247,7 +1247,7 @@ import Layout from '../layouts/Layout.astro';
     }
     .hero-ctas { justify-content: center; }
     .hero-checks { align-items: center; }
-    .hero-visual { order: -1; }
+    .hero-visual { order: 1; }
     .mockup-phone { width: 280px; }
     .proof-bar { justify-content: center; }
     .problem-grid { grid-template-columns: 1fr; }
@@ -1263,8 +1263,46 @@ import Layout from '../layouts/Layout.astro';
     .plans-grid { grid-template-columns: 1fr; }
     .plan-card-featured { transform: none; }
     .testimonials-grid { grid-template-columns: 1fr; }
-    .diff-table { overflow-x: auto; }
-    .diff-thead, .diff-row { grid-template-columns: 1.5fr 1fr 1.2fr; min-width: 520px; }
+    /* Tabela de comparação → cards empilhados no mobile */
+    .diff-table { overflow-x: unset; border-radius: 16px; }
+    .diff-thead { display: none; }
+    .diff-row {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1.25rem;
+      gap: 0.4rem;
+    }
+    .diff-row:nth-child(even) { background: var(--bg3); }
+    .diff-feature {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed var(--border);
+      margin-bottom: 0.25rem;
+    }
+    .diff-them::before {
+      content: "Chatbot genérico: ";
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink-dim);
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+    .diff-us::before {
+      content: "Nosso serviço: ";
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--green);
+      display: block;
+      margin-bottom: 0.1rem;
+      margin-top: 0.35rem;
+    }
+    .diff-col { padding: 0; font-size: 0.88rem; }
     .container { padding: 0 1.25rem; }
     .cta-box { padding: 3rem 1.5rem; }
     .section { padding: 4rem 0; }
