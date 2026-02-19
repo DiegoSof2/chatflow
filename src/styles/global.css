@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,700&family=Epilogue:wght@300;400;500;600&display=swap');
+/* Fonte carregada via preload no Layout.astro — removido @import para não bloquear renderização */
 
 :root {
   --bg:        #F7F3ED;
